@@ -1,0 +1,399 @@
+:root {
+  --lightgray: #f2f2f2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, 
+body {
+  font-family: 'Roboto Slab', serif;
+  background-color: var(--lightgray);
+}
+
+/*--- HEADER ---*/
+
+header {
+  height: 50px;
+  width: 100%;
+  font-size: 20px;
+}
+
+#logo {
+  font-family: 'Fredericka the Great', cursive;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  color: #FFF;
+  background: linear-gradient(to left, #3d4a63, #47365a);
+  height: 50px;
+  width: 100%;
+  padding: 2em;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+  
+.nav-menu > li {
+  margin: 0 1rem;
+  list-style: none;
+  overflow: hidden;
+}
+
+.nav-menu a {
+  font-family: 'Fredericka the Great', cursive;
+  font-weight: 400;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.nav-menu-button-container {
+  display: none;
+  height: 100%;
+  width: 30px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+  
+#nav-menu-toggle {
+  display: none;
+}
+  
+.nav-menu-button,
+.nav-menu-button::before,
+.nav-menu-button::after {
+  display: block;
+  background-color: #fff;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  transition: transform 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 2px;
+}
+  
+.nav-menu-button::before {
+  content: '';
+  margin-top: -8px;
+}
+  
+.nav-menu-button::after {
+  content: '';
+  margin-top: 8px;
+}
+  
+#nav-menu-toggle:checked + .nav-menu-button-container .nav-menu-button::before {
+  margin-top: 0px;
+  transform: rotate(405deg);
+}
+  
+#nav-menu-toggle:checked + .nav-menu-button-container .nav-menu-button {
+    background: rgba(255, 255, 255, 0);
+}
+  
+#nav-menu-toggle:checked + .nav-menu-button-container .nav-menu-button::after {
+  margin-top: 0px;
+  transform: rotate(-405deg);
+}
+  
+@media (max-width: 700px) {
+  .nav-menu-button-container {
+    display: flex;
+  }
+    .nav-menu {
+      position: absolute;
+      top: 0;
+      margin-top: 70px;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+  }
+    
+    #nav-menu-toggle ~ .nav-menu li {
+      height: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+    
+    #nav-menu-toggle:checked ~ .nav-menu li {
+      border: 1px solid #333;
+      height: 2.5em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+    
+    .nav-menu > li {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0.5em 0;
+      width: 100%;
+      color: white;
+      background-color: #222;
+  }
+    
+    .nav-menu > li:not(:last-child) {
+      border-bottom: 1px solid #444;
+  }
+}
+
+/*--- MAIN ---*/
+
+.mainQueueingTicket {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px 0;
+  margin: 50px auto;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item-container-1,
+.grid-item-container-2,
+.grid-item-container-3,
+.grid-item-container-4 {
+  display: flex;
+  padding: 30px;
+}
+
+.imageTicket {
+  margin: 0 70px;
+  height: 170px;
+  width: auto;
+}
+
+.mainQueueingTicket h1 {
+  text-align: center;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  color: #000;
+  margin: 30px;
+}
+
+.button,
+.button:after {
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  font-family: 'Bebas Neue', sans-serif;
+  background: linear-gradient(45deg, transparent 5%, #FF013C 5%);
+  border: 0;
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: 6px 0px 0px #00E6F6;
+  outline: transparent;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 30px 0px;
+}
+
+.button:after {
+  --slice-0: inset(50% 50% 50% 50%);
+  --slice-1: inset(80% -6px 0 0);
+  --slice-2: inset(50% -6px 30% 0);
+  --slice-3: inset(10% -6px 85% 0);
+  --slice-4: inset(40% -6px 43% 0);
+  --slice-5: inset(80% -6px 5% 0);
+  
+  content: 'ALTERNATE TEXT';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 3%, #00E6F6 3%, #00E6F6 5%, #FF013C 5%);
+  text-shadow: -3px -3px 0px #F8F005, 3px 3px 0px #00E6F6;
+  clip-path: var(--slice-0);
+}
+
+.button:hover:after {
+  animation: 1s glitch;
+  animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--slice-1);
+    transform: translate(-20px, -10px);
+  }
+  10% {
+    clip-path: var(--slice-3);
+    transform: translate(10px, 10px);
+  }
+  20% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 10px);
+  }
+  30% {
+    clip-path: var(--slice-3);
+    transform: translate(0px, 5px);
+  }
+  40% {
+    clip-path: var(--slice-2);
+    transform: translate(-5px, 0px);
+  }
+  50% {
+    clip-path: var(--slice-3);
+    transform: translate(5px, 0px);
+  }
+  60% {
+    clip-path: var(--slice-4);
+    transform: translate(5px, 10px);
+  }
+  70% {
+    clip-path: var(--slice-2);
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    clip-path: var(--slice-5);
+    transform: translate(20px, -10px);
+  }
+  90% {
+    clip-path: var(--slice-1);
+    transform: translate(-10px, 0px);
+  }
+  100% {
+    clip-path: var(--slice-1);
+    transform: translate(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .button,
+  .button:after {
+    width: 200px;
+    height: 86px;
+    line-height: 88px;
+  }
+}
+
+/*-- Footer --*/
+
+.footer-basic {
+  display: block;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 40px 0;
+  background-color: #000;
+  color: #fff;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.footer-basic ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 20px;
+  margin-bottom:0;
+  color: gray;
+}
+
+@media all and (max-width: 600px) {
+  .footer-basic {
+      flex-wrap: wrap;
+  }
+}
+
+.footer-basic li {
+  padding: 0 20px;
+}
+
+.footer-basic ul a {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+  opacity: 1;
+}
+
+.footer-basic .social {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.footer-basic .social > a {
+  display: inline-block;
+  text-align: center;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social > a:hover {
+  opacity: 0.5;
+}
+
+.footer-basic .copyright {
+  margin-top:15px;
+  text-align:center;
+  font-size: 13px;
+  color:#aaa;
+  margin-bottom:0;
+}
+
+/* Return to top button */
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 170px; /* Place the button at the bottom of the page */
+  right: 30px; /* Place the button 35px from the right */
+  z-index: 900; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: darkgray; /* Set a background color */
+  color: #fff; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 3px 10px; /* Some padding */
+  border-radius: 20%; /* Rounded corners */
+  font-size: 30px; /* Increase font size */
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px; /* Add a permanent shadow */
+}
+
+#myBtn:hover {
+  background-color: lightgray; /* Add background on hover */
+}
